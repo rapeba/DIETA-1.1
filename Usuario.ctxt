@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=nombreUsuario
+comment0.target=Usuario(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Usuario\r\n
+comment1.params=alimento\ cantidad
+comment1.target=void\ comer(java.lang.String,\ float)
+comment1.text=\r\n\ M\u00E9todo\ con\ dos\ par\u00E1metros\ capaz\ de\ recibir\ la\ clase\ de\ alimento\ y\ la\ cantidad\ del\ mismo\r\n
+comment2.params=
+comment2.target=void\ mostrarDatos()
+comment2.text=\r\n\ M\u00E9todo\ que\ muestra\ por\ pantalla\ el\ estado\ actual\ del\ usuario\r\n
+numComments=3

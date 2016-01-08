@@ -12,7 +12,7 @@ public class Alimento
     private float carbohidratos;
     private float grasas;
     private String nombre;
-    private float caloriastotales;
+    private float caloriasTotales;
 
     private String MacroMayoritario;
     /**
@@ -25,6 +25,7 @@ public class Alimento
         this.proteinas = proteinas;
         this.carbohidratos = carbohidratos;
         this.grasas = grasas;
+        
 
     }
 
@@ -39,7 +40,7 @@ public class Alimento
         System.out.println ("Proteínas por cada 100 gramos " +  proteinas ) ;
         System.out.println ("Carbohidratos por cada 100 gramos " +  carbohidratos ) ;
         System.out.println ("Grasas por cada 100 gramos " +  grasas ) ;
-        caloriastotales =(proteinas*4)+ (carbohidratos*4)+(grasas*9);
+        caloriasTotales =(proteinas*4)+ (carbohidratos*4)+(grasas*9);
         if (proteinas >=0 && proteinas<=100 && carbohidratos>=0&& carbohidratos<=100 && proteinas > grasas)
         {
 
@@ -73,6 +74,6 @@ public class Alimento
             System.out.println ("El macronutriente no es válido "  ) ;
         }
         System.out.println ("El macronutriente mayoritario es  " +  MacroMayoritario ) ;
-        System.out.println ("Las calorias totales son  " +  caloriastotales ) ;//la ultima parte en entornos de desarrollo, lo de num1<num2ESTE EJERCICIO BUSCALO
+        System.out.println ("Las calorias totales son  " +  caloriasTotales ) ;
     }
 }
