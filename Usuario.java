@@ -78,7 +78,7 @@ public class Usuario
         
         if (caloriasIngeridas == usuario.getCalorias())
         {
-            System.out.println(nombreCompleto+ " y " + usuario.nombreCompleto + " han consumido las mismas calorias");
+            System.out.println(nombreCompleto+ " y " + usuario.getNombre() + " han consumido las mismas calorias");
         }
     }
     
