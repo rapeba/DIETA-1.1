@@ -1,51 +1,100 @@
-
-/**
- * Write a description of class Usuario here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Usuario
 {
-    // instance variables
-    private String nombreUsuario;
-    private float proteinas;
-    private float carbohidratos;
-    private float grasas;
-    private float caloriasTotales;
-    
+        //nombre del usuario
+	private String nombreCompleto;
+	//proteinas  ingeridas por el usuario
+	private float proteinasIngeridas;
+	//carbohidratos   ingeridas por el usuario
+	private float carbohidratosIngeridos;
+	//grasas ingeridas por el usuario
+	private float grasasIngeridas;
+	//calorias totales ingeridas por el usuario
+	private float caloriasIngeridas;
 
-    /**
-     * Constructor for objects of class Usuario
-     */
-    public Usuario(String nombreUsuario)
+	/**
+	*Constructor de la clase usuario
+	*/
+	public Usuario (String nombreCompleto)
+	{
+		this.nombreCompleto = nombreCompleto;	
+		proteinasIngeridas = 0;
+		carbohidratosIngeridos = 0;
+		grasasIngeridas = 0;
+		caloriasIngeridas = 0;
+	}
+	
+	/**
+	* Metodo utilizado para dar de comer al usuario
+	*/
+	public void comer(Alimento alimentoQueCome, float gramosDelAlimento)
+	{
+		proteinasIngeridas = proteinasIngeridas + (alimentoQueCome.getProteinas() / 100 * gramosDelAlimento);
+		carbohidratosIngeridos = carbohidratosIngeridos + (alimentoQueCome.getCarbohidratos() / 100 * gramosDelAlimento);
+		grasasIngeridas = grasasIngeridas + (alimentoQueCome.getGrasas() / 100 * gramosDelAlimento);
+		caloriasIngeridas = caloriasIngeridas + (alimentoQueCome.getCalorias() / 100 * gramosDelAlimento);
+	}
+	
+	
+	
+	/**
+	* Metodo que muestra la informacion de lo ingerido por el usuario.
+	*/
+	public void muestraDatos()
+	{
+		float totalNutrientes = (proteinasIngeridas + grasasIngeridas + carbohidratosIngeridos) / 100;
+       		String datosProteinas = "Gramos totales de proteinas ingeridos:     " + proteinasIngeridas;
+        	String datosCarbohidratos = "Gramos totales de carbohidratos ingeridos: " + 			carbohidratosIngeridos;
+        	String datosGrasas = "Gramos totales de grasas ingeridos:        " + grasasIngeridas;
+        	if (proteinasIngeridas > 0) {
+            	datosProteinas = datosProteinas + " (" + proteinasIngeridas / totalNutrientes + "%)";
+        	}
+        	if (carbohidratosIngeridos > 0) {
+            	datosCarbohidratos = datosCarbohidratos + " (" + carbohidratosIngeridos / totalNutrientes + "%		)";
+        	}
+        	if (grasasIngeridas > 0) {
+            	datosGrasas = datosGrasas + " (" + grasasIngeridas / totalNutrientes + "%)";
+        	}
+        	System.out.println("Nombre:                                    " + nombreCompleto);
+        	System.out.println(datosProteinas);    
+        	System.out.println(datosCarbohidratos);
+        	System.out.println(datosGrasas);
+        	System.out.println("Calorias totales ingeridas:                " + caloriasIngeridas);	
+		}
+		
+	/**
+    * Método que compara un usuario con otro
+    */
+    public void comparaUsuario(Usuario usuario)
     {
-        // initialise instance variables
-        this.nombreUsuario=nombreUsuario;
-        proteinas=0;
-        carbohidratos=0;
-        grasas=0;
-        caloriasTotales=0;
+        if (caloriasIngeridas > usuario.getCalorias())
+        {
+            System.out.println(nombreCompleto + " ha tomado más calorías que " + usuario.getNombre() + " ( " + caloriasIngeridas + " frente a " + usuario.getCalorias() + ")");
+        }
         
-    }
-
-    /**
-     * Método con dos parámetros capaz de recibir la clase de alimento y la cantidad del mismo
-     */
-    public void comer(Alimento comida, float cantidad)
-    {
-     proteinas = proteinas + comida.getProteinas()*cantidad/100;
-     carbohidratos = carbohidratos + comida.getCarbohidratos()*cantidad/100;
-     grasas = grasas + comida.getGrasas()*cantidad/100;
-     caloriasTotales = caloriasTotales + comida.getcaloriasTotales()*cantidad/10; 
-     
+        if (caloriasIngeridas < usuario.getCalorias())
+        {
+            System.out.println(nombreCompleto + " ha consumido menos calorías que " + usuario.getNombre() + " ( " + caloriasIngeridas + " frente a " + usuario.getCalorias() + ")");
+        }
+        
+        if (caloriasIngeridas == usuario.getCalorias())
+        {
+            System.out.println(nombreCompleto+ " y " + usuario.nombreCompleto + " han consumido las mismas calorias");
+        }
     }
     
     /**
-     * Método que muestra por pantalla el estado actual del usuario
+     * Método geter que nos devuelve las calorias ingeridas
      */
-    public void mostrarDatos()
+    public float getCalorias()
     {
-        
+       return caloriasIngeridas;
+    }
+    
+    /**
+     * Método geter que nos devuelve el nombre
+     */
+    public String getNombre()
+    {
+        return nombreCompleto;
     }
 }
